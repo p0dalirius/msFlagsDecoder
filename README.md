@@ -1,5 +1,11 @@
 # msFlagsDecoder
 
+<p align="center">
+  <img alt="GitHub release (latest by date)" src="https://img.shields.io/github/v/release/p0dalirius/msFlagsDecoder">
+  <a href="https://twitter.com/intent/follow?screen_name=podalirius_" title="Follow"><img src="https://img.shields.io/twitter/follow/podalirius_?label=Podalirius&style=social"></a>
+  <br>
+</p>
+
 Decode the values of common Windows properties such as `userAccountControl` and `sAMAccountType`.
 
 ![](./.github/uac.png)
