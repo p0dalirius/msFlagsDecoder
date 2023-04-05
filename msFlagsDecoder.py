@@ -60,14 +60,13 @@ class sAMAccountType(Enum):
 ## Main
 
 def parseArgs():
-    parser = argparse.ArgumentParser(description="Description message")
-    # todo, list of attributes in argument
-    parser.add_argument("attribute", default=None, help="attribute")
+    parser = argparse.ArgumentParser(description="Decode the values of common Windows properties such as userAccountControl and sAMAccountType")
+    parser.add_argument("attribute", default=None, help="attribute (choose from userAccountControl and sAMAccountType)", metavar="attribute", choices=["userAccountControl", "sAMAccountType"])
     parser.add_argument("value", default=None, help="value")
 
     parser.add_argument("-b", "--bits", default=False, required=False, action='store_true', help="Show bits masks.")
-    parser.add_argument("-v", "--verbose", default=False, required=False, action='store_true', help="Verbose mode.")
     parser.add_argument("--colors", default=False, required=False, action='store_true', help="Print with colors.")
+    parser.add_argument("-v", "--verbose", default=False, required=False, action='store_true', help="Verbose mode.")
     return parser.parse_args()
 
 
