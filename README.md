@@ -19,17 +19,17 @@
 $ ./msFlagsDecoder.py -h
 usage: msFlagsDecoder.py [-h] [-b] [-v] [--colors] attribute value
 
-Description message
+Decode the values of common Windows properties such as userAccountControl and sAMAccountType
 
 positional arguments:
-  attribute      attribute
+  attribute      attribute (choose from userAccountControl and sAMAccountType)
   value          value
 
-optional arguments:
+options:
   -h, --help     show this help message and exit
-  -b, --bits     Show bits masks.
-  -v, --verbose  Verbose mode.
-  --colors       Verbose mode.
+  -b, --bits     show bits masks
+  -v, --verbose  verbose mode
+  --colors       print with colors
 ```
 
 ## Contributing

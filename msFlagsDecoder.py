@@ -64,9 +64,9 @@ def parseArgs():
     parser.add_argument("attribute", default=None, help="attribute (choose from userAccountControl and sAMAccountType)", metavar="attribute", choices=["userAccountControl", "sAMAccountType"])
     parser.add_argument("value", default=None, help="value")
 
-    parser.add_argument("-b", "--bits", default=False, required=False, action='store_true', help="Show bits masks.")
-    parser.add_argument("--colors", default=False, required=False, action='store_true', help="Print with colors.")
-    parser.add_argument("-v", "--verbose", default=False, required=False, action='store_true', help="Verbose mode.")
+    parser.add_argument("-b", "--bits", default=False, required=False, action='store_true', help="show bits masks")
+    parser.add_argument("--colors", default=False, required=False, action='store_true', help="print with colors")
+    parser.add_argument("-v", "--verbose", default=False, required=False, action='store_true', help="verbose mode")
     return parser.parse_args()
 
 
