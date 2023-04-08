@@ -60,14 +60,13 @@ class sAMAccountType(Enum):
 ## Main
 
 def parseArgs():
-    parser = argparse.ArgumentParser(description="Description message")
-    # todo, list of attributes in argument
-    parser.add_argument("attribute", default=None, help="attribute")
+    parser = argparse.ArgumentParser(description="Decode the values of common Windows properties such as userAccountControl and sAMAccountType")
+    parser.add_argument("attribute", default=None, help="attribute (choose from userAccountControl and sAMAccountType)", metavar="attribute", choices=["userAccountControl", "sAMAccountType"])
     parser.add_argument("value", default=None, help="value")
 
-    parser.add_argument("-b", "--bits", default=False, required=False, action='store_true', help="Show bits masks.")
-    parser.add_argument("-v", "--verbose", default=False, required=False, action='store_true', help="Verbose mode.")
-    parser.add_argument("--colors", default=False, required=False, action='store_true', help="Verbose mode.")
+    parser.add_argument("-b", "--bits", default=False, required=False, action='store_true', help="show bits masks")
+    parser.add_argument("--colors", default=False, required=False, action='store_true', help="print with colors")
+    parser.add_argument("-v", "--verbose", default=False, required=False, action='store_true', help="verbose mode")
     return parser.parse_args()
 
 
@@ -92,7 +91,7 @@ if __name__ == '__main__':
                     else:
                         print("  | %-30s : %s" % (
                             str(flag).split('.', 1)[1],
-                            bin(flag.value[0])[2:].rjust(bits, '0').replace('0', '.').replace("1", "\x1b[1;92m1\x1b[0m")
+                            bin(flag.value[0])[2:].rjust(bits, '0').replace('0', '.')
                         ))
                 else:
                     if options.colors:
@@ -110,7 +109,7 @@ if __name__ == '__main__':
                         else:
                             print("[>] %-30s : %s" % (
                                 str(flag).split('.', 1)[1],
-                                bin(flag.value[0])[2:].rjust(bits, '0').replace('0', '.').replace("1", "\x1b[91m1\x1b[0m")
+                                bin(flag.value[0])[2:].rjust(bits, '0').replace('0', '.')
                             ))
                     else:
                         if options.colors:
@@ -154,4 +153,3 @@ if __name__ == '__main__':
         except ValueError as e:
             print("[!] %s is not a valid sAMAccountType" % hex(options.value))
             pass
-
