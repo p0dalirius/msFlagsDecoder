@@ -32,6 +32,8 @@ options:
   --colors       print with colors
 ```
 
+The `value` argument accepts any standard Python integer literal: decimal (`512`), hexadecimal (`0x200`), binary (`0b1000000000`), or octal (`0o1000`).
+
 ## Contributing
 
 Pull requests are welcome. Feel free to open an issue if you want to add other features.

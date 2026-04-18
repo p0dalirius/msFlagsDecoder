@@ -73,9 +73,14 @@ def parseArgs():
 if __name__ == '__main__':
     options = parseArgs()
 
+    try:
+        options.value = int(options.value, 0)
+    except ValueError:
+        print("[!] Invalid value %r: expected an integer (decimal, 0x… hex, 0b… binary, or 0o… octal)" % options.value)
+        exit(1)
+
     if options.attribute.lower() == "userAccountControl".lower():
         bits = 32
-        options.value = int(options.value)
         if options.bits == True:
             print("[>] %-30s : %s" % ("userAccountControl value", bin(options.value)[2:].rjust(bits, '0').replace('0', '.')))
         else:
@@ -119,7 +124,6 @@ if __name__ == '__main__':
 
     elif options.attribute.lower() == "sAMAccountType".lower():
         bits = 32
-        options.value = int(options.value)
         if options.bits == True:
             print("[>] %-25s : %s" % ("sAMAccountType value", bin(options.value)[2:].rjust(bits, '0').replace('0', '.')))
         else:
